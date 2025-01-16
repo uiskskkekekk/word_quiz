@@ -15,7 +15,6 @@ class _AddWordScreenState extends State<AddWordScreen> {
 
   @override
   void dispose() {
-    // 記得要清理控制器
     _englishController.dispose();
     _chineseController.dispose();
     super.dispose();

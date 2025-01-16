@@ -128,7 +128,6 @@ class DatabaseService {
     );
 
     if (stats.isEmpty) {
-      // 如果還沒有統計資料，建立新的記錄
       await db.insert('quiz_stats', {
         'wordId': wordId,
         'correct': correct ? 1 : 0,
@@ -136,7 +135,6 @@ class DatabaseService {
         'lastAttempt': DateTime.now().toIso8601String(),
       });
     } else {
-      // 如果已有統計資料，更新現有記錄
       final currentCorrect = stats.first['correct'] as int? ?? 0;
       final currentAttempts = stats.first['attempts'] as int? ?? 0;
 

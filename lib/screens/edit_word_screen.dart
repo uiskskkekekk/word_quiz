@@ -29,7 +29,7 @@ class _EditWordScreenState extends State<EditWordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('編輯單字'),
+        title: Text('Edit word'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -40,12 +40,12 @@ class _EditWordScreenState extends State<EditWordScreen> {
               TextFormField(
                 controller: _englishController,
                 decoration: InputDecoration(
-                  labelText: '英文單字',
+                  labelText: 'English words',
                   border: OutlineInputBorder(),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                  return '請輸入英文單字';
+                  return 'Please enter English words';
                   }
                   return null;
                 },
@@ -54,12 +54,12 @@ class _EditWordScreenState extends State<EditWordScreen> {
               TextFormField(
                 controller: _chineseController,
                 decoration: InputDecoration(
-                  labelText: '中文意思',
+                  labelText: 'Chinese meaning',
                   border: OutlineInputBorder(),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return '請輸入中文意思';
+                    return 'Please enter the Chinese meaning';
                   }
                   return null;
                 },
@@ -68,7 +68,7 @@ class _EditWordScreenState extends State<EditWordScreen> {
               TextFormField(
                 controller: _categoryController,
                 decoration: InputDecoration(
-                  labelText: '分類 (選填)',
+                  labelText: 'Category (optional)',
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -85,12 +85,12 @@ class _EditWordScreenState extends State<EditWordScreen> {
                     );
                     await DatabaseService.instance.update(updatedWord);
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('單字更新成功！')),
+                      SnackBar(content: Text('Update successful！')),
                     );
                     Navigator.pop(context);
                   }
                 },
-                child: Text('儲存'),
+                child: Text('Save'),
               ),
             ],
           ),

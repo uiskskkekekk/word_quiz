@@ -104,13 +104,11 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
       }
     });
 
-    // 更新統計資料
     DatabaseService.instance.updateQuizStats(
       currentWord!.id!,
       selected == currentWord!.chinese,
     );
 
-    // 顯示結果對話框
     showDialog(
       context: context,
       barrierDismissible: false,
